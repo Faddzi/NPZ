@@ -1,0 +1,222 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>NPZ Studio Set</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,400..900;1,62..125,400..900&family=Instrument+Sans:wght@400;600&display=swap">
+<style>
+/* Layout: a sticky full-screen 3D studio; copy blocks scroll over it in normal flow, one per screen */
+:root{
+  --ink:#0B0B0C; --paper:#EDEBE6; --red:#EC0000; --red-on-dark:#FF2A1A; --mute-d:#B9B5AE; --mute-l:#4a4741;
+  --display:"Archivo","Arial Black",sans-serif; --body:"Instrument Sans",system-ui,sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{background:var(--ink);color:var(--paper)}
+body{font-family:var(--body);font-size:16px;line-height:1.5}
+.track{position:relative;height:500vh}
+.stick{position:sticky;top:0;height:100vh;height:100dvh;overflow:hidden}
+.stick canvas{display:block;width:100%;height:100%;touch-action:pan-y;cursor:grab}
+.fallback{position:absolute;inset:0;display:none;align-items:center;justify-content:center;color:var(--mute-d)}
+.nav{position:absolute;top:0;left:0;right:0;z-index:5;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;
+  padding:18px max(20px,env(safe-area-inset-right,0px)) 18px max(20px,env(safe-area-inset-left,0px));font-size:14px;color:var(--nav,var(--paper));pointer-events:none}
+.nav b{font-family:var(--display);font-variation-settings:"wdth" 125;font-weight:900;font-style:italic;font-size:22px;letter-spacing:-.01em}
+.nav ul{display:flex;gap:20px;list-style:none;margin:0;padding:0;flex-wrap:wrap}
+.panels{position:absolute;inset:0;pointer-events:none}
+.panel{height:100vh;height:100dvh;display:flex;align-items:flex-end;padding:0 max(20px,env(safe-area-inset-right,0px)) 9vh max(20px,env(safe-area-inset-left,0px))}
+.panel > div{max-width:620px;min-width:0;pointer-events:auto}
+h1,h2{font-family:var(--display);font-variation-settings:"wdth" 125;font-weight:900;font-style:italic;text-transform:uppercase;margin:0 0 16px;line-height:.92;letter-spacing:-.01em;text-wrap:balance}
+h1{font-size:clamp(30px,5.6vw,84px)}
+h1 em{color:var(--red-on-dark);font-style:italic}
+h2{font-size:clamp(30px,4.4vw,60px)}
+.panel p{margin:0 0 20px;max-width:46ch;font-size:17px}
+.dark{color:var(--paper)} .dark p{color:var(--mute-d)}
+.light{color:var(--ink)} .light p{color:var(--mute-l)} .light h2 em{color:var(--red);font-style:italic}
+.cta{display:inline-flex;align-items:center;gap:10px;background:var(--red);color:#fff;font-weight:600;font-size:16px;padding:15px 28px;text-decoration:none;
+  clip-path:polygon(10px 0,100% 0,calc(100% - 10px) 100%,0 100%);transition:background .15s}
+.cta:hover{background:#c40000}
+.cta:focus-visible{outline:3px solid #fff;outline-offset:4px}
+.hint{font-size:13px;color:var(--mute-d);margin-top:18px}
+.stats{display:flex;gap:28px;flex-wrap:wrap;margin-top:8px}
+.stats b{display:block;font-family:var(--display);font-variation-settings:"wdth" 125;font-weight:900;font-style:italic;font-size:clamp(32px,4vw,52px);line-height:1}
+.stats b span{color:var(--red)}
+.stats small{font-size:14px;color:var(--mute-l)}
+.note{position:relative;background:var(--paper);color:var(--ink);padding-block:28px 40px;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px));font-size:14px}
+.note p{max-width:80ch;margin:0 0 8px}
+@media (max-width:700px){ .panel{padding-bottom:6vh} .nav ul{display:none} h1,h2{font-variation-settings:"wdth" 100} .panel p{font-size:16px} }
+</style>
+</head><body style="margin:0">
+
+<div class="track" id="track">
+  <div class="stick" id="stick">
+    <div class="nav" id="nav"><b>NPZ</b><ul><li>Home</li><li>About</li><li>Services</li><li>Portfolio</li><li>Contact</li></ul></div>
+    <div class="fallback" id="fb">3D preview unavailable in this browser</div>
+  </div>
+  <div class="panels">
+    <section class="panel dark"><div>
+      <h1>Photography, video and <em>social media</em> for growing brands.</h1>
+      <p>We plan, shoot, edit and publish content for restaurants, fashion, jewellery and interior brands.</p>
+      <a class="cta" href="tel:+919967468833">Call +91 99674 68833</a>
+      <div class="hint">Scroll to light the set. Drag to spin the turntable.</div>
+    </div></section>
+    <section class="panel light"><div>
+      <h2>Lit, shot and <em>edited</em> in-house.</h2>
+      <p>Product shoots, brand films, reels and model shoots, with editing, colour grading and motion graphics done by the same team.</p>
+    </div></section>
+    <section class="panel light"><div>
+      <h2>Work for four kinds of brand.</h2>
+      <p>Food &amp; beverages, interiors, fashion &amp; accessories and jewellery. These frames hold placeholders until the portfolio arrives.</p>
+    </div></section>
+    <section class="panel light"><div>
+      <h2>Through the <em>lens</em>.</h2>
+      <p>Every project runs through eight steps, from brand discovery to publishing and growth.</p>
+    </div></section>
+    <section class="panel light"><div>
+      <div class="stats">
+        <div><b>50<span>+</span></b><small>projects completed</small></div>
+        <div><b>2M<span>+</span></b><small>views generated</small></div>
+        <div><b>20<span>+</span></b><small>happy clients</small></div>
+      </div>
+    </div></section>
+  </div>
+</div>
+<div class="note">
+  <p><strong>Direction D prototype.</strong> The whole first screen is a photo studio set. The NPZ mark sits on a turntable in the dark; as you scroll, the softboxes switch on, the camera moves round the set, work frames appear on the backdrop, and the view ends looking through the NPZ camera. Headings never move; only the 3D scene responds to scroll.</p>
+  <p>Fonts: Archivo and Instrument Sans. Colours: logo red, black, studio white. Models are quick sketches. Facts are from the NPZ portfolio PDF (slides 6, 7, 10 to 13, 11).</p>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+(function(){
+const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const stick=document.getElementById('stick'), track=document.getElementById('track'), nav=document.getElementById('nav');
+function hasGL(){try{const c=document.createElement('canvas');return !!(c.getContext('webgl'))}catch(e){return false}}
+if(typeof THREE==='undefined'||!hasGL()){document.getElementById('fb').style.display='flex';return}
+
+const renderer=new THREE.WebGLRenderer({antialias:true});
+renderer.setPixelRatio(Math.min(devicePixelRatio,1.75));
+renderer.outputEncoding=THREE.sRGBEncoding;
+renderer.toneMapping=THREE.ACESFilmicToneMapping;
+renderer.shadowMap.enabled=true; renderer.shadowMap.type=THREE.PCFSoftShadowMap;
+stick.prepend(renderer.domElement);
+const scene=new THREE.Scene();
+const dark=new THREE.Color(0x0b0b0c), lit=new THREE.Color(0xd9d6cf);
+scene.background=dark.clone(); scene.fog=new THREE.Fog(0x0b0b0c,14,30);
+const cam=new THREE.PerspectiveCamera(38,1,0.1,100);
+
+// set: floor + curved cyclorama
+const setMat=new THREE.MeshStandardMaterial({color:0xe9e6df,roughness:0.95});
+const floor=new THREE.Mesh(new THREE.PlaneGeometry(40,40),setMat);floor.rotation.x=-Math.PI/2;floor.receiveShadow=true;scene.add(floor);
+const wall=new THREE.Mesh(new THREE.PlaneGeometry(24,14),setMat);wall.position.set(0,7,-6.5);wall.receiveShadow=true;scene.add(wall);
+
+// lights
+const amb=new THREE.HemisphereLight(0xffffff,0x222222,0.05);scene.add(amb);
+const rim=new THREE.SpotLight(0xff2a1a,6,20,0.35,0.6);rim.position.set(0,6,-5);rim.target.position.set(0,1.2,0);scene.add(rim,rim.target);
+function softbox(x,z,ry){
+  const g=new THREE.Group();
+  const frame=new THREE.Mesh(new THREE.BoxGeometry(1.6,2.2,0.35),new THREE.MeshStandardMaterial({color:0x111113,roughness:0.6}));
+  const face=new THREE.Mesh(new THREE.PlaneGeometry(1.45,2.05),new THREE.MeshBasicMaterial({color:0x1a1a1a}));face.position.z=0.18;
+  const stand=new THREE.Mesh(new THREE.CylinderGeometry(0.03,0.03,2.4,8),new THREE.MeshStandardMaterial({color:0x222224,metalness:.6,roughness:.4}));stand.position.y=-2.2;
+  g.add(frame,face,stand);g.position.set(x,3.4,z);g.rotation.y=ry;g.rotation.x=-0.25;scene.add(g);
+  const L=new THREE.SpotLight(0xfff6ea,0,25,0.7,0.8,1);L.position.set(x,3.4,z);L.target.position.set(0,1,0);L.castShadow=true;L.shadow.mapSize.set(1024,1024);L.shadow.bias=-0.0005;scene.add(L,L.target);
+  return {face,L};
+}
+const sbL=softbox(-6.2,0.6,-1.15), sbR=softbox(4.2,1.4,1.05);
+const fill=new THREE.DirectionalLight(0xffffff,0);fill.position.set(0,8,6);scene.add(fill);
+
+// turntable + NPZ mark
+const plinth=new THREE.Mesh(new THREE.CylinderGeometry(1.5,1.6,0.5,64),new THREE.MeshStandardMaterial({color:0x0b0b0c,roughness:0.35,metalness:0.2}));
+plinth.position.y=0.25;plinth.castShadow=plinth.receiveShadow=true;scene.add(plinth);
+const turn=new THREE.Group();turn.position.y=0.5;scene.add(turn);
+(function(){
+  const black=new THREE.MeshStandardMaterial({color:0x111112,metalness:0.4,roughness:0.22});
+  const red=new THREE.MeshStandardMaterial({color:0xec0000,metalness:0.25,roughness:0.28});
+  const white=new THREE.MeshStandardMaterial({color:0xf3f1ec,roughness:0.4});
+  const ex={depth:0.6,bevelEnabled:true,bevelThickness:0.05,bevelSize:0.04,bevelSegments:3};
+  const N=new THREE.Shape();N.moveTo(0,0);N.lineTo(0.95,0);N.lineTo(0.95,1.6);N.lineTo(1.6,0);N.lineTo(2.5,0);N.lineTo(2.5,3);N.lineTo(1.55,3);N.lineTo(1.55,1.3);N.lineTo(0.9,3);N.lineTo(0,3);N.lineTo(0,0);
+  const P=new THREE.Shape();P.moveTo(1.9,1.0);P.lineTo(1.9,3);P.lineTo(3.2,3);P.absarc(3.2,2.15,0.85,Math.PI/2,-Math.PI/2,true);P.lineTo(2.75,1.3);P.lineTo(2.75,1.0);P.lineTo(1.9,1.0);
+  const hole=new THREE.Path();hole.moveTo(2.75,1.95);hole.lineTo(3.2,1.95);hole.absarc(3.2,2.15,0.2,-Math.PI/2,Math.PI/2,false);hole.lineTo(2.75,2.35);hole.lineTo(2.75,1.95);P.holes.push(hole);
+  const Z=new THREE.Shape();Z.moveTo(2.6,0);Z.lineTo(4,0);Z.lineTo(4,0.3);Z.lineTo(3.1,0.3);Z.lineTo(4,0.85);Z.lineTo(4,1.0);Z.lineTo(2.6,1.0);Z.lineTo(2.6,0.7);Z.lineTo(3.45,0.7);Z.lineTo(2.6,0.15);Z.lineTo(2.6,0);
+  const shear=new THREE.Matrix4().set(1,0.28,0,0,0,1,0,0,0,0,1,0,0,0,0,1);
+  const g=new THREE.Group();
+  [[N,black,0],[P,red,-0.22],[Z,white,0.14]].forEach(([s,m,z])=>{const geo=new THREE.ExtrudeGeometry(s,ex);geo.applyMatrix4(shear);const me=new THREE.Mesh(geo,m);me.position.z=z;me.castShadow=true;g.add(me)});
+  const b=new THREE.Box3().setFromObject(g),c=b.getCenter(new THREE.Vector3());g.position.set(-c.x,-b.min.y,-c.z);
+  g.scale.setScalar(0.62);turn.add(g);
+})();
+
+// NPZ camera on tripod, front right
+const rig=new THREE.Group();rig.position.set(3.5,0,4.0);rig.rotation.y=0.72;scene.add(rig);
+(function(){
+  const m=new THREE.MeshStandardMaterial({color:0x151517,metalness:.5,roughness:.4});
+  for(let i=0;i<3;i++){const leg=new THREE.Mesh(new THREE.CylinderGeometry(0.025,0.03,1.7,8),m);const a=i*Math.PI*2/3;leg.position.set(Math.cos(a)*0.35,0.8,Math.sin(a)*0.35);leg.rotation.z=Math.cos(a)*0.22;leg.rotation.x=-Math.sin(a)*0.22;rig.add(leg)}
+  const body=new THREE.Mesh(new THREE.BoxGeometry(0.62,0.42,0.34),m);body.position.y=1.85;rig.add(body);
+  const lens=new THREE.Mesh(new THREE.CylinderGeometry(0.15,0.16,0.42,32),m);lens.rotation.x=Math.PI/2;lens.position.set(0,1.82,-0.36);rig.add(lens);
+  const ring=new THREE.Mesh(new THREE.TorusGeometry(0.16,0.015,8,32),new THREE.MeshStandardMaterial({color:0xec0000}));ring.position.set(0,1.82,-0.5);rig.add(ring);
+  const tally=new THREE.Mesh(new THREE.SphereGeometry(0.025,12,12),new THREE.MeshBasicMaterial({color:0xff2a1a}));tally.position.set(0.24,2.03,-0.1);rig.add(tally);
+})();
+
+// work frames on the backdrop (placeholders)
+const cats=[['Food & Beverages','#C2462B'],['Interiors','#5B5249'],['Fashion & Accessories','#2E4A3B'],['Jewellery','#5A1E2E']];
+const frames=[];
+cats.forEach(([name,col],i)=>{
+  const cv=document.createElement('canvas');cv.width=320;cv.height=400;const x=cv.getContext('2d');
+  x.fillStyle=col;x.fillRect(0,0,320,400);x.fillStyle='rgba(255,255,255,.08)';for(let k=0;k<10;k++)x.fillRect(0,k*40,320,1);
+  x.fillStyle='#F3F1EC';x.font='bold 30px sans-serif';const words=name.split(' ');let y=310;
+  if(words.length>2){x.fillText(words.slice(0,2).join(' '),22,y-34);x.fillText(words.slice(2).join(' '),22,y)}else x.fillText(name,22,y);
+  x.font='18px sans-serif';x.fillStyle='rgba(243,241,236,.75)';x.fillText('Placeholder',22,352);
+  const t=new THREE.CanvasTexture(cv);t.encoding=THREE.sRGBEncoding;
+  const p=new THREE.Mesh(new THREE.PlaneGeometry(1.6,2),new THREE.MeshStandardMaterial({map:t,roughness:0.7}));
+  p.position.set(-3.3+i*2.2,2.9,-5.6);p.castShadow=true;p.userData.base=p.position.clone();scene.add(p);frames.push(p);
+});
+
+// camera path keyframes [progress, position, target]
+const keys=[
+  [0.00,[0,1.9,9.5],[0,1.4,0]],
+  [0.25,[-2.4,2.4,8.2],[0,1.3,0]],
+  [0.50,[0.3,3.0,9.4],[0,2.3,-3.5]],
+  [0.75,[4.2,2.4,8.0],[0.4,1.3,0]],
+  [1.00,[3.4,1.5,7.4],[0.2,1.1,0]],
+];
+const V=(a)=>new THREE.Vector3(...a);
+function pathAt(p){
+  for(let i=0;i<keys.length-1;i++){const a=keys[i],b=keys[i+1];if(p<=b[0]){const t=(p-a[0])/(b[0]-a[0]);const e=t*t*(3-2*t);return [V(a[1]).lerp(V(b[1]),e),V(a[2]).lerp(V(b[2]),e)]}}
+  const k=keys[keys.length-1];return [V(k[1]),V(k[2])];
+}
+const clamp=(v,a,b)=>Math.max(a,Math.min(b,v)), ramp=(p,a,b)=>clamp((p-a)/(b-a),0,1);
+
+let target=0, prog=0, spin=0, spinV=0, drag=false, lastX=0, visible=true;
+function readScroll(){const r=track.getBoundingClientRect();const total=track.offsetHeight-window.innerHeight;target=clamp(-r.top/total,0,1)}
+addEventListener('scroll',readScroll,{passive:true});readScroll();
+const cv=renderer.domElement;
+cv.addEventListener('pointerdown',e=>{drag=true;lastX=e.clientX});
+addEventListener('pointermove',e=>{if(!drag)return;spinV=(e.clientX-lastX)*0.008;spin+=spinV;lastX=e.clientX});
+addEventListener('pointerup',()=>{drag=false});
+function size(){const w=stick.clientWidth,h=stick.clientHeight;renderer.setSize(w,h,false);cam.aspect=w/h;const narrow=w<700;cam.fov=narrow?58:38;
+  if(narrow) cam.setViewOffset(w,h,0,h*0.22,w,h); else cam.setViewOffset(w,h,-w*0.2,0,w,h);
+  cam.updateProjectionMatrix()}
+addEventListener('resize',size);size();
+new IntersectionObserver(es=>{visible=es[0].isIntersecting}).observe(stick);
+
+const tmp=new THREE.Color();
+function frame(){
+  requestAnimationFrame(frame);
+  if(!visible)return;
+  prog+= reduce ? (target-prog) : (target-prog)*0.08;
+  const p=prog;
+  const on=ramp(p,0.06,0.22);           // lights switch on
+  sbL.L.intensity=on*2.4; sbR.L.intensity=on*1.8; fill.intensity=on*0.35; amb.intensity=0.05+on*0.45;
+  sbL.face.material.color.setScalar(0.1+on*0.9); sbR.face.material.color.setScalar(0.1+on*0.9);
+  rim.intensity=6*(1-on*0.6);
+  tmp.copy(dark).lerp(lit,on); scene.background.copy(tmp); scene.fog.color.copy(tmp);
+  nav.style.setProperty('--nav', on>0.5?'#0B0B0C':'#EDEBE6');
+  const show=ramp(p,0.38,0.55);          // work frames rise onto the backdrop
+  frames.forEach((f,i)=>{const d=clamp(show*1.6-i*0.2,0,1);f.position.y=f.userData.base.y-2.6*(1-d);f.rotation.y=(1-d)*0.6});
+  if(!drag){ if(!reduce) spin+=0.004; spin+=spinV; spinV*=0.93; }
+  turn.rotation.y=spin; plinth.rotation.y=spin;
+  const [pos,look]=pathAt(p); cam.position.copy(pos); cam.lookAt(look);
+  renderer.render(scene,cam);
+}
+frame();
+})();
+</script>
+</body></html>
