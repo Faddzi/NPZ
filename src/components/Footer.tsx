@@ -50,7 +50,7 @@ export default function Footer() {
         </p>
         <p>
           Developed &amp; maintained by{' '}
-          <a className="link-plain text-paper" href="https://seven72.com" target="_blank" rel="noopener">
+          <a className="link-plain text-paper" href="https://seven72.com/ref=npz" target="_blank" rel="noopener">
             seven72.com
           </a>
         </p>
